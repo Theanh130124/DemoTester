@@ -1,1 +1,0 @@
-Thêm vào để test git rm , git reset , và git checkout
