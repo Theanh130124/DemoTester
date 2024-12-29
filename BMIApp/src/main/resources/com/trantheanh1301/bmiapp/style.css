@@ -1,0 +1,15 @@
+
+GridPane {
+    -fx-background-color: lightblue;
+    -fx-font-family:Tohoma;
+    -fx-padding : 2 ;
+    -fx-hgap:20;   /*hgap click vaof GridPane -> sẽ thấy đoạn mờ bị cách ra hướng dọc */
+   
+}
+Text.Tittle{
+    -fx-fill:red; /*Này là màu chữ*/
+    -fx-stroke: gold; /*này là màu nền*/
+    -fx-stroke-width: 3 ; /*này là độ dày viền*/
+    -fx-font-size: 20; /*này là độ to */
+}
+
