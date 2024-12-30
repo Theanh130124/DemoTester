@@ -43,6 +43,8 @@
                 <version>2.22.2</version>
             </plugin>
             <plugin>
+                <!--/ xong nhớ bulid lại -->
+                <!--Xong rồi mở qua tab file  nhấn Crtl + 2 -> tạo thêm thư mục test ngang cấp src và java nằm trong test--> 
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
