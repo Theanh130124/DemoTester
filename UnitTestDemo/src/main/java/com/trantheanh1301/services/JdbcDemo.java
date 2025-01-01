@@ -5,11 +5,11 @@
 package com.trantheanh1301.services;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;//Dùng cho java
-
+import com.trantheanh1301.unittestdemo.JDBCUtils;
 
 /**
  *
@@ -21,9 +21,14 @@ public class JdbcDemo {
         
         //B1 . Nạp driver
                 //Lên maven respontory -> lấý mysql connector
-                Class.forName("com.mysql.cj.jdbc.Driver");  //Dẫn đường tới driver , thêm ngoại lệ
+                
+//                Đã import qua bên JDBCUtils
+                
+                
         //B2. Mở kết nối
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/englishdb", "root", "123456"); //Thêm ngoại lệ
+//              Đã import qua bên JDBCUtils
+                      
+        Connection conn = JDBCUtils.getConn();
             
         //Có thể dùng PreparedStatement để tránh tấn công SQL injections
                 
@@ -32,13 +37,10 @@ public class JdbcDemo {
         
           //+Truy vấn dữ liệu : select
           //Trả ra dữ liệu là curor
+      
           
-          ResultSet rs = stm.executeQuery("SELECT * FROM category");
-          while (rs.next()){    //Luôn trỏ vào dòng đó
-              int id = rs.getInt("id"); // có thể lấy bằng cách gọi tên cột hoặc gọi index của cột trong bảng -> index : 1 -> là cột id
-              String name = rs.getString(2); // lấy ra cột name
-              System.out.printf("%d-%s\n",id,name);
-          }
+          //Lệnh đã được chuyển qua CategoryServices
+          
           //-> Truy vấn dữ liệu và trả về String
           
           
