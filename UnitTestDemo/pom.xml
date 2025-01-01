@@ -23,6 +23,14 @@
                 <version>5.11.4</version>
                 <scope>test</scope>
             </dependency>
+            
+              <!--cài driver-->
+                <dependency>
+                    <groupId>com.mysql</groupId>
+                    <artifactId>mysql-connector-j</artifactId>
+                    <version>9.1.0</version>
+                </dependency>
+
             <!---->
             <!--Xong rồi nhớ Build lại dự án vào Test Dependencies để xem lại -> maven giống như môi trường ảo--> 
 
@@ -31,6 +39,9 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
+      
+
+
     </dependencies>
     <build>
 
