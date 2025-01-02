@@ -24,6 +24,14 @@
                 <scope>test</scope>
             </dependency>
             
+                  <!-- Dòng này thêm vào của JUNIT PARAMS/-->
+                <dependency>
+              <groupId>org.junit.jupiter</groupId>
+              <artifactId>junit-jupiter-params</artifactId>
+              <version>5.11.4</version>
+              <scope>test</scope>
+          </dependency>
+            
               <!--cài driver-->
                 <dependency>
                     <groupId>com.mysql</groupId>
@@ -40,6 +48,7 @@
             <version>13</version>
         </dependency>
       
+
 
 
     </dependencies>

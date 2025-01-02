@@ -10,6 +10,7 @@
 import com.trantheanh1301.services.DeQuyServices;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+
 public class HamMuTester {
     
 //    Phân vùng test
@@ -98,3 +99,6 @@ public class HamMuTester {
     }
     
 }
+//Việc chỉ có tham số test thay đổi thôi -> Thì ta có thể Dùng Parameteried test để gom nhóm lại
+
+//Junit 5 Params
