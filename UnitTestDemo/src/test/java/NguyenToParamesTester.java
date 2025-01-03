@@ -9,10 +9,14 @@
  */
 
 import com.trantheanh1301.services.NguyenToServices;
+
+import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.api.Assertions;
 
 
@@ -45,6 +49,26 @@ public class NguyenToParamesTester {
         Assertions.assertEquals(actual, expected);
         
     }
+    @ParameterizedTest
+    @MethodSource(value = "ntData")
+    public void testMethod(int n , boolean expected){
+        boolean actual = NguyenToServices.isNguyenTo(n);
+        Assertions.assertEquals(actual,expected);
+        
+    }
+    
+    //Cách thứ 4 này hay dùng -> Có truy vấn dữ liệu 
+    static Stream<Arguments> ntData(){
+        //...
+        return Stream.of(
+                //Arguments sẽ tương úng với 1 phần tử trong Stream
+                Arguments.arguments(3,true),
+                Arguments.arguments(4,false)
+                );
+        
+        
+    }
+    
     
 }
 //Nên tách datatest ra ngoài luôn cụ thể là tách  @CsvSource(value = {"2,false","11,true","1,false"})  và   @ValueSource(ints = {})
