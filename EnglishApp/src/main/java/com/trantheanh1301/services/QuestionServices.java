@@ -25,6 +25,11 @@ public class QuestionServices {
         //1 câu 1 lựa chọn đúng
     try(Connection conn = JDBCUtils.getConn()) 
         {
+          conn.setAutoCommit(false); // Quan trọng : Gom toàn bộ thao tác thêm câu hỏi -> và thêm lựa chọn thành 1 -> nhất quán
+          //Nó sẽ không thực hiện thao tác executeUpdate -> mà sẽ lưu ở bộ đệm 
+          
+          //Chỉ thực hiện lưu xuống csdl khi conn.commit(); -> vì đã set retrun true
+          
           //Nếu quên lệnh có thể Send to SQL Editor bên Mysql
           String sql = "INSERT INTO question(id,content,category_id) VALUES(?, ? , ?)"; //Truyền vậy tranh SQL ịneections -> dấu ? sẽ là tham số truyền vào tương ứng với thứ tự Values
            PreparedStatement stm = conn.prepareCall(sql);
@@ -33,7 +38,29 @@ public class QuestionServices {
             stm.setInt(3, q.getCategory_id());
             
             int r = stm.executeUpdate();  //-> trả ra dòng bị ảnh hướng 
-              return r > 0 ;
+              
+              if ( r>0){
+                  //Nếu mà có update thì thực hiện gán giá trị
+                  sql = "INSERT INTO choice(id,choice,is_correct,question_id) VALUES(?,?,?,?)";
+                  PreparedStatement stml = conn.prepareCall(sql);
+                  //Thực hiện set dữ liệu xuống csdl
+                  for(Choice c: choices){
+                      stml.setString(1, c.getId());
+                      stml.setString(2,c.getChoice());
+                      stml.setBoolean(3, c.getIs_correct());
+                      stml.setString(4, c.getQuestion_id()); // này là UUID 
+                      stml.execute();
+                  }
+              }
+//              return r>0;
+                try{
+                    conn.commit();
+                    return true;
+                }catch(Exception ex){
+                    ex.printStackTrace(); //in lỗi trên terminal
+                    return false; // không lưu
+                }
+                
             
     }
    

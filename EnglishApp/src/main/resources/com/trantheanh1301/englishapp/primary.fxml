@@ -13,35 +13,35 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="372.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trantheanh1301.englishapp.PrimaryController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Tittle" text="ENGLISH APP" />
-      <TextField />
+      <TextField fx:id="txtContent" />
       <ComboBox fx:id="cbCategory" prefWidth="150.0" />
       <HBox prefHeight="31.0" prefWidth="372.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="A" />
-            <TextField />
+            <RadioButton fx:id="rdoA" mnemonicParsing="false" text="A" />
+            <TextField fx:id="txtA" />
          </children>
       </HBox>
       <HBox layoutX="10.0" layoutY="77.0" prefHeight="31.0" prefWidth="372.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="B" />
-            <TextField />
+            <RadioButton fx:id="rdoB" mnemonicParsing="false" text="B" />
+            <TextField fx:id="txtB" />
          </children>
       </HBox>
       <HBox layoutX="10.0" layoutY="108.0" prefHeight="31.0" prefWidth="372.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="C" />
-            <TextField />
+            <RadioButton fx:id="rdoC" mnemonicParsing="false" text="C" />
+            <TextField fx:id="txtC" />
          </children>
       </HBox>
       <HBox layoutX="10.0" layoutY="140.0" prefHeight="31.0" prefWidth="372.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="D" />
-            <TextField />
+            <RadioButton fx:id="rdoD" mnemonicParsing="false" text="D" />
+            <TextField fx:id="txtD" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Thêm " />
+            <Button mnemonicParsing="false" onAction="#addQuestionHandler" text="Thêm " />
             <Button mnemonicParsing="false" text="Cập nhật" />
          </children>
       </HBox>
